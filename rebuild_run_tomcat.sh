@@ -7,12 +7,12 @@ sudo umount /home/thadk/gitrepos/amp/TEMPLATE
 
 sleep 2
 echo "wipe & checkout latest code"
-cd ~/Downloads/apache-tomcat-7.0.55/webapps/ROOT/
+cd ~/Downloads/tomcat-env/webapps/ROOT/
 git reset --hard && git svn rebase
 
 sleep 2
 
-mvn clean generate-resources process-resources -DserverName=local -Djdbc.db=amp-timor-210-stg-tc7 -Djdbc.user=amp -Djdbc.password=amp -Djdbc.port=5433
+mvn clean generate-resources process-resources -DserverName=local -Djdbc.db=amp-moldova-210-stg-tc7 -Djdbc.user=amp -Djdbc.password=amp -Djdbc.port=5433
 
 sleep 2
 #run monetdb and mount
@@ -21,7 +21,7 @@ sleep 2
 
 sleep 2
 
-cd ~/Downloads/apache-tomcat-7.0.55/
+cd ~/Downloads/tomcat-env/
 export CATALINA_OPTS="-Damp.disableMemCheck=true -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false -Djava.awWHITESPACE=false  -Djava.awt.headless=true -XX:PermSize=1512m -Xms1512M -Xmx2048M"
 ./bin/catalina.sh run
 
